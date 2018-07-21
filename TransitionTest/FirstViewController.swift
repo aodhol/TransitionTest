@@ -12,7 +12,6 @@ class FirstViewController: UIViewController {
 
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet weak var collectionView: UICollectionView!
-    var selectedIndexPath: IndexPath? // For the transition.
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +24,7 @@ class FirstViewController: UIViewController {
 
         let translation = gestureRecognizer.translation(in: collectionView)
         let height = gestureRecognizer.view?.frame.height ?? 0.0
+
         var progress = translation.y / height
         progress = CGFloat(fminf(fmaxf(Float(progress), 0.0), 1.0))
 
@@ -35,22 +35,17 @@ class FirstViewController: UIViewController {
         case .began:
 
             animationController.interactionController = UIPercentDrivenInteractiveTransition()
-            selectedIndexPath = collectionView.centerCellIndexPath
 
             self.performSegue(withIdentifier: "show_details", sender: self)
 
         case .changed:
-
-            animationController.initialVelocity = 0.0
-            print(translation)
+            
             let d = translation.y / gestureRecognizer.view!.bounds.height * -1
             animationController.interactionController?.update(d)
 
         case .cancelled, .ended:
 
             let vel = panGestureRecognizer.velocity(in: view)
-
-            animationController.initialVelocity = vel.y
 
             if vel.y < 0 {
                 animationController.interactionController?.finish()

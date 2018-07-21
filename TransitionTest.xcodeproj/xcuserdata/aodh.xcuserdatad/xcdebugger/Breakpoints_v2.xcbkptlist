@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransitionTest/FirstViewController.swift"
-            timestampString = "553869150.527043"
+            timestampString = "553872026.091639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "handleGesture(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TransitionTest/ExpandPresentAnimationController.swift"
-            timestampString = "553869150.52711"
+            timestampString = "553872026.091765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "interruptibleAnimator(using:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -18,8 +18,6 @@ class ExpandPresentAnimationController: NSObject, UIViewControllerAnimatedTransi
     
     var interactionController: UIPercentDrivenInteractiveTransition?
     
-    var initialVelocity: CGFloat = 0.0
-    
     fileprivate var propertyAnimator: UIViewPropertyAnimator? {
         didSet {
             if #available(iOS 11.0, *) {
@@ -30,11 +28,6 @@ class ExpandPresentAnimationController: NSObject, UIViewControllerAnimatedTransi
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return propertyAnimator?.duration ?? duration
-    }
-    
-    class func propertyAnimator(initialVelocity: CGVector = .zero) -> UIViewPropertyAnimator {
-        let timingParameters = UISpringTimingParameters(mass: 4.5, stiffness: 1000, damping: 95, initialVelocity: initialVelocity)
-        return UIViewPropertyAnimator(duration: duration, timingParameters:timingParameters)
     }
     
     func animationEnded(_ transitionCompleted: Bool) {
